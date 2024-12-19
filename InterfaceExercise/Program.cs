@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace InterfaceExercise
 {
@@ -37,6 +39,22 @@ namespace InterfaceExercise
 
             //Now, create objects of your 3 classes and give their members values.
             //Creatively display and organize their values
+
+            var car1 = new Car() {NumberOfWheels = 4, NumberOfDoors = 2, PaintColor = "Black", DriveType = "4x2", CompanyName = "BMW", CompanyLogo = "BMW Circle", HasSpoiler = true, TrunkCapacity = 15};
+            var truck1 = new Truck() {NumberOfWheels = 4, NumberOfDoors = 4, PaintColor = "Blue", DriveType = "4x4", CompanyName = "Ford", CompanyLogo ="Blue Oval", HasPlow = true, TuckBedLength = 8};
+            var SUV1 = new SUV() {NumberOfWheels = 4, NumberOfDoors = 4, PaintColor = "Red", DriveType = "4x4", CompanyName = "GMC", CompanyLogo = "GMC", ThirdRowSeating = true, TowCapacity = 3000};
+
+            var vehicles = new List<IVehicle>() { car1, truck1, SUV1 };
+
+            foreach (var vehicle in vehicles)
+            {
+                Console.WriteLine(vehicle);
+                Console.WriteLine($"Number of Wheels: {vehicle.NumberOfWheels}");
+                Console.WriteLine($"Number of Doors: {vehicle.NumberOfDoors}");
+                Console.WriteLine($"Paint Color: {vehicle.PaintColor}");
+                Console.WriteLine($"Drive Type: {vehicle.DriveType}");
+                Console.WriteLine();
+            }
             
             //Option for displaying values: 
             //Create a stubbed out method called DisplayDetails in your IVehicle interface.
